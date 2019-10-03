@@ -1,12 +1,24 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import Layout from '../components/Layout';
+import HeroBanner from '../components/HeroBanner';
+import BannerContent from '../components/BannerContent';
 
 const Home = () => {
   return (
-    <>
-      <Layout>This is the home page</Layout>
-    </>
+    <Layout>
+      <HeroBanner>
+        <BannerContent
+          title="continue exploring"
+          info="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, placeat!"
+        >
+          <Link className="btn-white" to="/tours">
+            explore tours
+          </Link>
+        </BannerContent>
+      </HeroBanner>
+    </Layout>
   );
 };
 
