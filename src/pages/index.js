@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
 import BannerContent from '../components/BannerContent';
+import AboutSection from '../views/Home/About';
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
           </Link>
         </BannerContent>
       </HeroBanner>
+      <AboutSection />
     </Layout>
   );
 };
