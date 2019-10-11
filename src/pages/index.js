@@ -6,6 +6,7 @@ import StyledBanner from '../components/StyledBanner';
 import BannerContent from '../components/BannerContent';
 import AboutSection from '../views/Home/About';
 import ServicesSection from '../views/Home/Services';
+import FeaturedTours from '../views/Home/FeaturedTours';
 
 const Home = ({ data }) => {
   return (
@@ -26,6 +27,7 @@ const Home = ({ data }) => {
       </StyledBanner>
       <AboutSection />
       <ServicesSection />
+      <FeaturedTours />
     </Layout>
   );
 };
