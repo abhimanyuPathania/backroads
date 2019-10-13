@@ -3,10 +3,11 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import StyledBanner from '../components/StyledBanner';
+import ToursSection from '../views/Tours/ToursSection';
 
 export const query = graphql`
   {
-    bannerImage: file(relativePath: { eq: "connectBcg.jpeg" }) {
+    bannerImage: file(relativePath: { eq: "defaultBcg.jpeg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 1920) {
           ...GatsbyImageSharpFluid_withWebp
@@ -16,12 +17,13 @@ export const query = graphql`
   }
 `;
 
-const Tours = ({ data }) => {
+const ToursPage = ({ data }) => {
   return (
     <Layout>
       <StyledBanner img={data.bannerImage.childImageSharp.fluid} />
+      <ToursSection />
     </Layout>
   );
 };
 
-export default Tours;
+export default ToursPage;
