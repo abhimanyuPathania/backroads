@@ -13,7 +13,7 @@ const TourCard = ({ tour }) => {
     <article className={styles.tour}>
       <div className={styles.imgContainer}>
         <Image fluid={mainImage} className={styles.img} alt="single tour" />
-        <Link className={styles.link} to={`/tour/${slug}`}>
+        <Link className={styles.link} to={`/tours/${slug}`}>
           details
         </Link>
       </div>
