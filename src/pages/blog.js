@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import StyledBanner from '../components/StyledBanner';
+import BlogList from '../views/Blog/BlogList';
 
 export const query = graphql`
   {
@@ -20,6 +21,7 @@ const Blog = ({ data }) => {
   return (
     <Layout>
       <StyledBanner img={data.bannerImage.childImageSharp.fluid} />
+      <BlogList />
     </Layout>
   );
 };
