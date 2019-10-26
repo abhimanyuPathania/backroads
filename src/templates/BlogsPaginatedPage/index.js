@@ -5,6 +5,7 @@ import Layout from '../../components/Layout';
 import BlogCard from '../../components/BlogCard';
 import Title from '../../components/Title';
 import Pagination from '../../components/Pagination';
+import SEO from '../../components/SEO';
 
 import styles from './styles.module.css';
 
@@ -20,6 +21,7 @@ const BlogsPaginated = props => {
 
   return (
     <Layout>
+      <SEO title="Blog Pages" />
       <section className={styles.blog}>
         <Title title="latest" subtitle="posts" />
         <div className={styles.center}>

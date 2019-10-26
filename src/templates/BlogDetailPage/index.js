@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
 
 import styles from './styles.module.css';
 
@@ -45,6 +46,7 @@ const BlogDetailPage = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={title} />
       <section className={styles.blog}>
         <div className={styles.center}>
           <h1>{title}</h1>

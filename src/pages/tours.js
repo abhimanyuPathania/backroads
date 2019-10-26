@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import StyledBanner from '../components/StyledBanner';
+import SEO from '../components/SEO';
 import ToursSection from '../views/Tours/ToursSection';
 
 export const query = graphql`
@@ -20,6 +21,7 @@ export const query = graphql`
 const ToursPage = ({ data }) => {
   return (
     <Layout>
+      <SEO title="Tours" />
       <StyledBanner img={data.bannerImage.childImageSharp.fluid} />
       <ToursSection />
     </Layout>

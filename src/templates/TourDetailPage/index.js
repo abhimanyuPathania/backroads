@@ -5,6 +5,7 @@ import { FaMoneyBillWave, FaMap } from 'react-icons/fa';
 
 import Layout from '../../components/Layout';
 import StyledBanner from '../../components/StyledBanner';
+import SEO from '../../components/SEO';
 import Day from '../../views/Tours/Day';
 
 import styles from './styles.module.css';
@@ -26,6 +27,7 @@ const TourDetailPage = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={name} />
       <StyledBanner img={mainImage.fluid} />
       <section className={styles.template}>
         <div className={styles.center}>

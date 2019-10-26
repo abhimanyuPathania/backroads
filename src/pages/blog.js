@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import StyledBanner from '../components/StyledBanner';
 import BlogList from '../views/Blog/BlogList';
 
@@ -20,6 +21,7 @@ export const query = graphql`
 const Blog = ({ data }) => {
   return (
     <Layout>
+      <SEO title="Blog" />
       <StyledBanner img={data.bannerImage.childImageSharp.fluid} />
       <BlogList />
     </Layout>

@@ -10,6 +10,8 @@ module.exports = {
     description:
       'Explore awesome worldwide tours & discover what makes each of them unique. Forget your daily routine & say yes to adventure',
     author: 'Abhimanyu',
+    image: 'defaultBcg.jpeg',
+    siteUrl: 'https://roadsback.netlify.com',
   },
   plugins: [
     {
@@ -29,5 +31,6 @@ module.exports = {
     'gatsby-plugin-styled-components',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
   ],
 };
