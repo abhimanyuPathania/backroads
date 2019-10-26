@@ -15,19 +15,34 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
+
+      posts: allContentfulPost {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `);
 
   // Handle errors
   if (result.errors) {
-    reporter.panicOnBuild(`Error while building tour pages.`);
+    reporter.panicOnBuild(`Error while building pages.`);
     return;
   }
 
-  // Create pages for each tour.
+  // Create pages
   const tourDetailPageTemplate = path.resolve(
     `src/templates/TourDetailPage/index.js`
   );
+  const blogDetailPageTemplate = path.resolve(
+    `src/templates/BlogDetailPage/index.js`
+  );
+  const blogPaginatedPageTemplate = path.resolve(
+    `src/templates/BlogsPaginatedPage/index.js`
+  );
+
   result.data.tours.edges.forEach(({ node: { slug } }) => {
     createPage({
       path: `tours/${slug}`,
@@ -39,4 +54,31 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     });
   });
+
+  result.data.posts.edges.forEach(({ node: { slug } }) => {
+    createPage({
+      path: `blog/${slug}`,
+      component: blogDetailPageTemplate,
+      context: {
+        slug,
+      },
+    });
+  });
+
+  const numberOfBlogPosts = result.data.posts.edges.length;
+  const postsPerPage = 5;
+  const numberOfPages = Math.ceil(numberOfBlogPosts / postsPerPage);
+
+  for (let i = 0; i < numberOfPages; i += 1) {
+    createPage({
+      path: i === 0 ? 'blogs' : `blogs/${i + 1}`,
+      component: blogPaginatedPageTemplate,
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        currentPage: i + 1,
+        numberOfPages,
+      },
+    });
+  }
 };
